@@ -25,9 +25,13 @@ class ProductItem extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(8.0),
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ProductScreen(id: product.id.toString());
-          }));
+          Navigator.pushNamed(
+            context, 
+            ProductScreen.route,
+            arguments: {
+              "id": product.id.toString()
+            }
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

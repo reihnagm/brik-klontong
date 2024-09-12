@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProductsScreen extends StatefulWidget {
+  static const String route = '/products';
+
   const ProductsScreen({super.key});
 
   @override

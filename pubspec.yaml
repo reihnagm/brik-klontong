@@ -23,17 +23,11 @@ dependencies:
   # E
   equatable: ^2.0.5
 
-  # F
-  flutter_secure_storage: ^9.2.2
-
   # G
   get_it: ^7.6.7
 
   # I
   intl: ^0.19.0
-
-  # W
-  web_socket_channel: ^2.4.4
 
   # P
   provider: ^6.1.2

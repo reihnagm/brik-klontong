@@ -1,7 +1,4 @@
-import 'package:brik/common/helpers/storage.dart';
-
-import 'package:brik/features/dashboard/presentation/pages/dashboard.dart';
-
+import 'package:brik/features/product/presentation/pages/products.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -20,24 +17,7 @@ class SplashPageState extends State<SplashPage> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 1), () async {
-      bool? isLoggedIn = await StorageHelper.isLoggedIn();
-
-      if(isLoggedIn != null) {
-        if(isLoggedIn) {
-          if(mounted) {
-            Navigator.pushNamed(context, DashboardPage.route);
-          }
-        } else {
-          // if(mounted) {
-          //   Navigator.pushReplacementNamed(context, LoginPage.route);
-          // }
-        }
-      } else {
-        // if(mounted) {
-        //   Navigator.pushReplacementNamed(context, LoginPage.route);
-        // }
-      }
-
+      Navigator.pushNamed(context, ProductsScreen.route);
     });
   }
 
@@ -51,7 +31,7 @@ class SplashPageState extends State<SplashPage> {
     return const Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Text("Product",
+        child: Text("Klontong Shop",
           style: TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold

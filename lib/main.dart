@@ -4,8 +4,6 @@ import 'package:provider/provider.dart';
 
 import 'package:brik/route.dart';
 
-import 'package:brik/common/helpers/storage.dart';
-
 import 'package:brik/global.dart';
 import 'package:brik/providers.dart';
 
@@ -15,8 +13,6 @@ import 'package:brik/features/splash/presentation/pages/splash.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await StorageHelper.init();
 
   di.init();
 

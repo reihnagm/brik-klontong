@@ -13,6 +13,8 @@ import 'package:brik/features/product/presentation/provider/get_product_notifier
 import 'package:brik/common/helpers/enum.dart';
 
 class ProductScreen extends StatefulWidget {
+  static const String route = '/product';
+    
   final String id;
   const ProductScreen({
     required this.id,
