@@ -13,6 +13,7 @@ abstract class ProductRemoteDataSource {
     required int limit,
   });
   Future<ProductDetail> getProduct({required String id});
+  Future<void> storeProduct({required String title});
 }
 
 class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
@@ -48,6 +49,20 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
       Map<String, dynamic> data = response.data;
       ProductDetail productDetailModel = ProductDetail.fromJson(data);
       return productDetailModel;
+    } catch(e, stacktrace) {
+      debugPrint(stacktrace.toString());
+      throw Exception(e.toString());
+    }
+  }
+
+  @override 
+  Future<void> storeProduct({required String title}) async {
+    try {
+      await client.post("/products/add", 
+        data: {
+          "title": title
+        }
+      );
     } catch(e, stacktrace) {
       debugPrint(stacktrace.toString());
       throw Exception(e.toString());

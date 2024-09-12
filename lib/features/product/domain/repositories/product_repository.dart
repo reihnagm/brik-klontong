@@ -12,4 +12,5 @@ abstract class ProductRepository {
     required int skip
   });
   Future<Either<Failure, ProductDetail>> getProduct({required String id});
+  Future<Either<Failure, void>> storeProduct({required String title});
 }

@@ -51,8 +51,11 @@ class GetProductsNotifier with ChangeNotifier {
 
       _products = [];
       _products.addAll(r);
-
       setStateProvider(ProviderState.loaded);
+
+      if(products.isEmpty) {
+        setStateProvider(ProviderState.empty);
+      }
     
     });
   }

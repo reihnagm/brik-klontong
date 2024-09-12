@@ -1,21 +1,15 @@
-import 'package:brik/features/product/data/models/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'package:brik/features/product/domain/usecases/get_product.dart';
-
-
+import 'package:brik/features/product/domain/usecases/store_product.dart';
 import 'package:brik/common/helpers/enum.dart';
 
-class GetProductNotifier with ChangeNotifier {
-  final GetProductUseCase getProductUseCase;
+class StoreProductNotifier with ChangeNotifier {
+  final StoreProductUseCase storeProductUseCase;
 
-  GetProductNotifier({
-    required this.getProductUseCase
+  StoreProductNotifier({
+    required this.storeProductUseCase
   });
-
-  ProductDetail _product = ProductDetail();
-  ProductDetail get product => _product;
 
   ProviderState _state = ProviderState.idle;
   ProviderState get state => _state;
@@ -29,10 +23,10 @@ class GetProductNotifier with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getProduct({required String id}) async {
+  Future<void> storeProduct({required String title}) async {
     setStateProvider(ProviderState.loading);
 
-    final result = await getProductUseCase.execute(id: id);
+    final result = await storeProductUseCase.execute(title: title);
 
     result.fold((l) {
       
@@ -41,7 +35,6 @@ class GetProductNotifier with ChangeNotifier {
 
     }, (r) {
 
-      _product = r;
       setStateProvider(ProviderState.loaded);
     
     });

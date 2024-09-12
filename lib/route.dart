@@ -1,3 +1,4 @@
+import 'package:brik/features/product/presentation/pages/add_product.dart';
 import 'package:brik/features/product/presentation/pages/product.dart';
 import 'package:brik/features/product/presentation/pages/products.dart';
 import 'package:brik/features/splash/presentation/pages/splash.dart';
@@ -10,6 +11,8 @@ class AppRoute {
     switch (settings.name) {
       case SplashPage.route:
         return MaterialPageRoute(builder: (context) => const SplashPage());
+      case AddProductScreen.route:
+        return MaterialPageRoute(builder: (context) => const AddProductScreen());
       case ProductsScreen.route:
         return MaterialPageRoute(builder: (context) => const ProductsScreen());
       case ProductScreen.route:

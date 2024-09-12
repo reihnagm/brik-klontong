@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:brik/common/helpers/enum.dart';
+
 import 'package:brik/features/product/data/models/product.dart';
+import 'package:brik/features/product/presentation/pages/add_product.dart';
 import 'package:brik/features/product/presentation/pages/widget/product_item.dart';
 import 'package:brik/features/product/presentation/provider/get_products_notifier.dart';
 
@@ -111,35 +113,50 @@ class ProductsScreenState extends State<ProductsScreen> {
                           right: 16.0
                         ),
                         padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          controller: searchC,
-                          focusNode: searchFn,
-                          style: const TextStyle(
-                            fontSize: 16.0
-                          ),
-                          decoration: InputDecoration(
-                            hintText: "Search by Title",
-                            hintStyle: const TextStyle(
-                              fontSize: 14.0
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                controller: searchC,
+                                focusNode: searchFn,
+                                style: const TextStyle(
+                                  fontSize: 16.0
+                                ),
+                                decoration: InputDecoration(
+                                  hintText: "Search by Title",
+                                  hintStyle: const TextStyle(
+                                    fontSize: 14.0
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                  contentPadding: const EdgeInsets.only(
+                                    top: 8.0,
+                                    bottom: 8.0,
+                                    left: 16.0,
+                                    right: 16.0
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0)
+                                  )
+                                ),
+                              ),
                             ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
-                            contentPadding: const EdgeInsets.only(
-                              top: 8.0,
-                              bottom: 8.0,
-                              left: 16.0,
-                              right: 16.0
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0)
+                            const SizedBox(width: 10.0),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, AddProductScreen.route);
+                              },
+                              child: const Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
                             )
-                          ),
-                        ),
+                          ],  
+                        ) 
                       ),
                     )
                   ),
-                  
               
                   if(notifier.state == ProviderState.loading) 
                     const SliverFillRemaining(
